@@ -78,4 +78,6 @@ plt.show()
 sns.boxplot(data=aantal_stappen_per_episode)
 plt.show()
 
-# env.close()
+
+env_not_human.close()
+env_human.close()
