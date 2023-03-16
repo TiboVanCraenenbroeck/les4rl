@@ -28,7 +28,7 @@ class QLearningAgent:
             self.action = np.argmax(self.q_table[cart_position, cart_velocity, pole_angle, pole_velocity_at_tip, :])
         return self.action
     
-    def update_qtable(self, state, new_state, reward):
+    def train_agent(self, state, new_state, reward):
         cart_position, cart_velocity, pole_angle, pole_velocity_at_tip = self.compute_discrete_state(state)
         cart_position_n, cart_velocity_n, pole_angle_n, pole_velocity_at_tip_n = self.compute_discrete_state(new_state)
         self.q_table[cart_position, cart_velocity, pole_angle, pole_velocity_at_tip, self.action] = (1-self.alpha) * self.q_table[cart_position, cart_velocity, pole_angle, pole_velocity_at_tip, self.action] + self.alpha * (reward + self.gamma * self.q_table[cart_position_n, cart_velocity_n, pole_angle_n, pole_velocity_at_tip_n, np.argmax(self.q_table[cart_position_n, cart_velocity_n, pole_angle_n, pole_velocity_at_tip_n, :])])

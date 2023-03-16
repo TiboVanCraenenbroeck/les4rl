@@ -54,7 +54,7 @@ for episode in range(aantal_episodes):
             reward = -100
 
         # Agent trainen
-        agent.update_qtable(observatie, observatie_nu, reward)
+        agent.train_agent(observatie, observatie_nu, reward)
         observatie = observatie_nu
 
         
@@ -78,4 +78,4 @@ plt.show()
 sns.boxplot(data=aantal_stappen_per_episode)
 plt.show()
 
-env.close()
+# env.close()
