@@ -10,11 +10,11 @@ env_not_human = gym.make('CartPole-v0')
 env_human = gym.make('CartPole-v0', render_mode = "human")
 
 
-alpha: float = 0.1
-gamma: float = 0.9
-decay: float = 0.9999
+alpha: float = 0.1 # Hoeveel % van de vorige q-value moet vervangen worden door de nieuwe?
+gamma: float = 0.9 # Hoeveel % van de max-q-value moet bij de huidige reward bijgeteld worden?
+decay: float = 0.9999 # Hoe snel moet de agent stoppen met het nemen van willekeurige acties?
+exploration_rate: float = 0.999 # Startgetal voor het nemen van willekeurige acties
 nr_states: int = 10**4
-exploration_rate: float = 0.999
 
 
 # Agent aanmaken
